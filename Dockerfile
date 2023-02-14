@@ -1,6 +1,6 @@
 FROM golang:1.20
-WORKDIR /go/src/maria-prototype
-COPY . /go/src/maria-prototype/
+WORKDIR /go/src/intern-assignment
+COPY . /go/src/intern-assignment
 RUN go mod tidy
 
 # Airをインストール
