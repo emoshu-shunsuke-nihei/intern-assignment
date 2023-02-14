@@ -21,11 +21,11 @@ services:
     # コンテナ内で使用する環境変数の値を指定 
     environment:
   
-      MYSQL_ROOT_USER: root # MySQLのルートユーザー名
-      MYSQL_ROOT_PASSWORD: pass # MySQLのルートユーザーのパスワード 
-      MYSQL_DATABASE: sampledb # MySQLに用意されている初期データベースの名前 
-      MYSQL_USER: docker # MySQLのユーザー名
-      MYSQL_PASSWORD: docker # MySQLのユーザーパスワード
+      MYSQL_ROOT_USER: ${ROOTUSER} # MySQLのルートユーザー名
+      MYSQL_ROOT_PASSWORD: ${ROOTPASS} # MySQLのルートユーザーのパスワード 
+      MYSQL_DATABASE: ${DATABASE} # MySQLに用意されている初期データベースの名前 
+      MYSQL_USER: ${USERNAME} # MySQLのユーザー名
+      MYSQL_PASSWORD: ${USERPASS} # MySQLのユーザーパスワード
       TZ: 'Asia/Tokyo'
     # コンテナの 3306 番ポートを、ローカルの 3306 番ポートにつなげる 
     ports:
