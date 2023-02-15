@@ -3,12 +3,12 @@ services:
   app:  
     build: .
     ports:
-      - '3030:3000'
+      - '3000:3000'
     volumes:
-      - .:/app
+      - .:/go/src/intern-assignment
     depends_on: #dbに依存する
       - db
-    command: ["./start.sh"]
+    command: bash -c "chmod +x /go/src/intern-assignment/start.sh && /go/src/intern-assignment/start.sh"
   db:
     image: mysql:8.0 # MySQLのバージョンを指定 
     container_name: db-for-intern-assignment
