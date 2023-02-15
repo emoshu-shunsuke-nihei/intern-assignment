@@ -12,12 +12,6 @@ services:
   db:
     image: mysql:8.0 # MySQLのバージョンを指定 
     container_name: db-for-intern-assignment
-    # MySQLの設定値を指定 
-    command:
-      - --character-set-server=utf8mb4
-      - --collation-server=utf8mb4_unicode_ci
-      - --sql-mode=ONLY_FULL_GROUP_BY,NO_ENGINE_SUBSTITUTION
-      - --default-authentication-plugin=mysql_native_password
     # コンテナ内で使用する環境変数の値を指定 
     environment:
   
@@ -34,6 +28,7 @@ services:
     volumes:
       - db-volume:/var/lib/mysql
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./my.conf:/etc/mysql/conf.d/my.cnf
   # ボリュームの作成 
 volumes:
   db-volume:
