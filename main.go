@@ -3,9 +3,12 @@ package main
 import (
 	"intern-assignment/handlers"
 
+	_ "intern-assignment/docs"
+
 	"intern-assignment/database"
 
 	"github.com/labstack/echo/v4"
+	echoswagger "github.com/swaggo/echo-swagger"
 )
 
 // func hello(c echo.Context) error {
@@ -20,13 +23,18 @@ import (
 // 	}
 // }
 
+// @title        intern-assignment
+// @version      1.0
+// @license.name intern-assignment
+// @host         localhost:3000
+// @BasePath     /
 func main() {
 	e := echo.New()
 	database.Connect()
 	sqlDB, _ := database.DB.DB()
 	defer sqlDB.Close()
 
-	// e.GET("/", hello)
+	e.GET("/swagger/*", echoswagger.WrapHandler)
 	e.POST("/members", handlers.CreateMember)
 	e.GET("/members", handlers.GetMemberList)
 	e.GET("/members/:id", handlers.GetMemberDetailInfo)

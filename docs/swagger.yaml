@@ -1,0 +1,10 @@
+basePath: /
+host: localhost:3000
+info:
+  contact: {}
+  license:
+    name: intern-assignment
+  title: intern-assignment
+  version: "1.0"
+paths: {}
+swagger: "2.0"
